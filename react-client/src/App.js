@@ -7,6 +7,7 @@ import "./App.css";
 import "./bootstrap.min.css";
 
 import Home from "./components/Home";
+import SignUp from "./components/SignUp";
 
 function App(props) {
   return (
@@ -16,14 +17,15 @@ function App(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/SignUp">Sign Up</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
       <div>
         <Route render={() => <Home />} path="/home" />
+        <Route render={() => <SignUp />} path="/SignUp" />
       </div>
     </Router>
   );
 }
-//<Route render ={()=> < App />} path="/" />
 export default App;

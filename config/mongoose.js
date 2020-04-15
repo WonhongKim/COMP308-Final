@@ -16,8 +16,7 @@ module.exports = function () {
       console.log("Error");
     });
 
-  require("../app/models/nurse.server.model");
-  require("../app/models/patient.server.model");
+  require("../app/models/user.server.model");
   require("../app/models/patientdata.server.model");
   require("../app/models/dailytip.server.model");
   require("../app/models/activities.server.model");

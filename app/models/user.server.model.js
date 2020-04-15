@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const Schema = mongoose.Schema;
 
-var NurseSchema = new Schema({
+var UserSchema = new Schema({
   type: {
     type: String,
     required: "User Type is required",
@@ -41,18 +41,18 @@ var NurseSchema = new Schema({
   },
 });
 
-NurseSchema.pre("save", function (next) {
+UserSchema.pre("save", function (next) {
   this.password = bcrypt.hashSync(this.password, saltRounds);
   next();
 });
 
-NurseSchema.methods.authenticate = function (password) {
+UserSchema.methods.authenticate = function (password) {
   return this.password === bcrypt.hashSync(password, saltRounds);
 };
 
-NurseSchema.set("toJSON", {
+UserSchema.set("toJSON", {
   getters: true,
   virtuals: true,
 });
 
-mongoose.model("Nurse", NurseSchema);
+mongoose.model("User", UserSchema);
