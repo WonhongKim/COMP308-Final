@@ -5,8 +5,8 @@ import React from "react";
 function Home(props) {
   return (
     <div className="jumbotron">
-      <h1 className="display-3">Hello, Student</h1>
-      <p className="lead">This is the site for Adding and modify your course</p>
+      <h1 className="display-3">Hello</h1>
+      <p className="lead">This is Ehealth system</p>
       <hr className="my-4" />
       <p>
         First of all you need to sign up for processing your course resister.

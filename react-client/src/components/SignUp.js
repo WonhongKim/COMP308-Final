@@ -46,10 +46,10 @@ function SignUp(props) {
         axios
           .post(apiUrl, data)
           .then((result) => {
-            props.history.push("/Home");
+            props.history.push("/Ehealth");
           })
           .catch((error) => {
-            props.history.push("/Home");
+            window.alert("there is exsiting User");
           });
       }
     } catch (e) {

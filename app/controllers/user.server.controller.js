@@ -22,21 +22,25 @@ exports.authenticate = function (req, res, next) {
   const email = req.body.auth.email;
   const password = req.body.auth.password;
 
-  User.findOne({ email: email }, (err, student) => {
+  User.findOne({ email: email }, (err, user) => {
     if (err) {
       return next(err);
     } else {
-      if (bcrypt.compareSync(password, student.password)) {
-        const token = jwt.sign({ email: student.email }, jwtKey, {
-          algorithm: "HS256",
-          expiresIn: jwtExpirySeconds,
-        });
+      if (bcrypt.compareSync(password, user.password)) {
+        const token = jwt.sign(
+          { email: user.email, userType: user.type },
+          jwtKey,
+          {
+            algorithm: "HS256",
+            expiresIn: jwtExpirySeconds,
+          }
+        );
 
         res.cookie("token", token, {
           maxAge: jwtExpirySeconds * 1000,
           httpOnly: true,
         });
-        res.status(200).send({ screen: student.email });
+        res.status(200).send({ screen: user.email, userType: user.type });
 
         req.email = email;
 
@@ -59,7 +63,6 @@ exports.signout = (req, res) => {
 
 exports.isSignedIn = (req, res) => {
   const token = req.cookies.token;
-  console.log(token);
   if (!token) {
     return res.send({ screen: "auth" }).end();
   }
@@ -72,5 +75,5 @@ exports.isSignedIn = (req, res) => {
     }
     return res.status(400).end();
   }
-  res.status(200).send({ screen: payload.email, userType: payload.type });
+  res.status(200).send({ screen: payload.email, userType: payload.userType });
 };
