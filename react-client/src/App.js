@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navbar from "react-bootstrap/Navbar";
@@ -10,6 +10,9 @@ import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Ehealth from "./components/Ehealth";
 import AddDailyTip from "./components/AddDailyTip";
+import VeiwDailytip from "./components/VeiwDailytip";
+import ViewDailytipDetail from "./components/ViewDailytipDetail";
+import AddPatientData from "./components/AddPatientData";
 
 function App(props) {
   return (
@@ -29,6 +32,12 @@ function App(props) {
         <Route render={() => <SignUp />} path="/SignUp" />
         <Route render={() => <Ehealth />} path="/Ehealth" />
         <Route render={() => <AddDailyTip />} path="/AddDailyTip" />
+        <Route render={() => <VeiwDailytip />} path="/VeiwDailytip" />
+        <Route
+          render={() => <ViewDailytipDetail />}
+          path="/ViewDailytipDetail/:id"
+        />
+        <Route render={() => <AddPatientData />} path="/AddPatientData" />
       </div>
     </Router>
   );

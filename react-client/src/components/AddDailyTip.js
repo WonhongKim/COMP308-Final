@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import Calendar from "react-calendar";
 import axios from "axios";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import "react-calendar/dist/Calendar.css";
 
 function AddDailyTip(props) {

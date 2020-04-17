@@ -28,7 +28,6 @@ exports.create = function (req, res) {
   console.log(newdate);
 
   DailyTip.findOne({ date: req.body.date }, (err, existone) => {
-    console.log(existone);
     if (err) {
       return getErrorMessage(err);
     }
@@ -43,4 +42,48 @@ exports.create = function (req, res) {
       }
     });
   });
+};
+
+exports.tipLoad = function (req, res, next) {
+  DailyTip.find({}, function (err, tips) {
+    if (err) {
+      return next(err);
+    } else {
+      res.json(tips);
+    }
+  });
+};
+
+exports.test = function (req, res) {
+  const newdate = moment(new Date()).format("YYYY-MM-DD");
+
+  DailyTip.findOne({ date: newdate }, (err, existone) => {
+    console.log(existone);
+    if (existone === null) {
+      res.status(400).send({ tip: "no" });
+    } else {
+      res.status(200).send({ tip: existone.tip, writer: existone.writer });
+    }
+  });
+};
+
+exports.read = function (req, res) {
+  res.json(req.course);
+};
+
+exports.userByID = function (req, res, next, id) {
+  console.log(id);
+  DailyTip.findOne(
+    {
+      _id: id,
+    },
+    (err, course) => {
+      if (err) {
+        return next(err);
+      } else {
+        req.course = course;
+        next();
+      }
+    }
+  );
 };

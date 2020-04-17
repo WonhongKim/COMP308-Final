@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
 const Schema = mongoose.Schema;
 
 var PatientdataSchema = new Schema({
@@ -32,16 +30,15 @@ var PatientdataSchema = new Schema({
     type: String,
     required: "sendertype is required",
   },
+  date: {
+    type: String,
+    required: "date is required",
+  },
 });
 
 PatientdataSchema.pre("save", function (next) {
-  this.password = bcrypt.hashSync(this.password, saltRounds);
   next();
 });
-
-PatientdataSchema.methods.authenticate = function (password) {
-  return this.password === bcrypt.hashSync(password, saltRounds);
-};
 
 PatientdataSchema.set("toJSON", {
   getters: true,

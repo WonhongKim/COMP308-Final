@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 function Ehealth(props) {
   const [screen, setScreen] = useState("auth");
@@ -15,9 +14,7 @@ function Ehealth(props) {
   const auth = async () => {
     try {
       const loginData = { auth: { email, password } };
-
       const res = await axios.post(apiUrl, loginData);
-
       if (res.data.screen !== undefined) {
         setScreen(res.data.screen);
         setUserType(res.data.userType);
@@ -30,7 +27,6 @@ function Ehealth(props) {
   const readCookie = async () => {
     try {
       const res = await axios.get("/api/read_cookie");
-
       if (res.data.screen !== undefined) {
         setScreen(res.data.screen);
         setUserType(res.data.userType);
@@ -99,7 +95,6 @@ function Ehealth(props) {
         <h2>Welcome {screen}</h2>
         <p className="lead">nurse</p>
         <hr className="my-4" />
-        <p>Ehealth System for Nurse</p>
         <div style={{ marginTop: "20px" }}>
           <a
             className="btn btn-primary btn-md"
@@ -127,21 +122,20 @@ function Ehealth(props) {
         <h2>Welcome {screen}</h2>
         <p className="lead">patient</p>
         <hr className="my-4" />
-        <p>Ehealth System for Nurse</p>
         <div style={{ marginTop: "20px" }}>
           <a
             className="btn btn-primary btn-md"
             style={{ marginRight: "20px" }}
-            href="/BuildTimeTable"
+            href="/VeiwDailytip"
           >
-            Build Time Table
+            See Daily Tip
           </a>
           <a
             className="btn btn-warning btn-md"
             style={{ marginRight: "20px" }}
             href="/ViewTimeTable"
           >
-            View Time Table
+            Add Pitent information
           </a>
           <button className="btn btn-danger btn-md" onClick={deleteCookie}>
             Log out

@@ -10,6 +10,7 @@ var config = require("./config"),
   session = require("express-session");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const moment = require("moment");
 
 // Create a new Express application instance
 module.exports = function () {
@@ -66,6 +67,7 @@ module.exports = function () {
   require("../app/routes/index.server.routes.js")(app);
   require("../app/routes/user.server.routes.js")(app);
   require("../app/routes/dailytip.server.routes.js")(app);
+  require("../app/routes/patientdata.server.routes.js")(app);
 
   //The express.static() middleware takes one argument
   //to determine the location of the static folder
