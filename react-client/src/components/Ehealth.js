@@ -133,9 +133,16 @@ function Ehealth(props) {
           <a
             className="btn btn-warning btn-md"
             style={{ marginRight: "20px" }}
-            href="/ViewTimeTable"
+            href="/AddPatientData"
           >
-            Add Pitent information
+            Add Pitent Data
+          </a>
+          <a
+            className="btn btn-warning btn-md"
+            style={{ marginRight: "20px" }}
+            href="/Activity"
+          >
+            Move to Acitiviy page
           </a>
           <button className="btn btn-danger btn-md" onClick={deleteCookie}>
             Log out

@@ -13,6 +13,7 @@ import AddDailyTip from "./components/AddDailyTip";
 import VeiwDailytip from "./components/VeiwDailytip";
 import ViewDailytipDetail from "./components/ViewDailytipDetail";
 import AddPatientData from "./components/AddPatientData";
+import Activity from "./components/Activity";
 
 function App(props) {
   return (
@@ -38,6 +39,7 @@ function App(props) {
           path="/ViewDailytipDetail/:id"
         />
         <Route render={() => <AddPatientData />} path="/AddPatientData" />
+        <Route render={() => <Activity />} path="/Activity" />
       </div>
     </Router>
   );
