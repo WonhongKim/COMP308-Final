@@ -20,6 +20,7 @@ module.exports = function () {
   require("../app/models/patientdata.server.model");
   require("../app/models/dailytip.server.model");
   require("../app/models/activities.server.model");
+  require("../app/models/emergency.server.model");
   // Return the Mongoose connection instance
   return db;
 };

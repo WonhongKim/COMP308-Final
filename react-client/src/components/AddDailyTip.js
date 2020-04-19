@@ -91,7 +91,7 @@ function AddDailyTip(props) {
             <Calendar onChange={onDateChange} />
 
             <button className="btn btn-primary btn-md" onClick={saveDailyTip}>
-              Sign Up
+              Add daily Tip
             </button>
           </div>
           <div className="col-4"></div>

@@ -12,18 +12,24 @@ function Activity(props) {
           <div className="col-lg-4">
             <Card style={{ width: "40rem" }}>
               <Card.Body>
-                <Card.Title>Today's Activity!</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
+                <Card.Title style={{ textAlign: "center", marginTop: "20px" }}>
+                  Today's Activity!
+                </Card.Title>
+                <Card.Subtitle
+                  className="mb-2 text-muted"
+                  style={{ textAlign: "center", marginTop: "20px" }}
+                >
                   Let's Together Today's work out
                 </Card.Subtitle>
-                <Card.Text style={{ textAlign: "center" }}>
+                <Card.Text style={{ textAlign: "center", marginTop: "30px" }}>
                   <iframe
+                    title="Acitivity"
                     width="560"
                     height="315"
                     src="https://www.youtube.com/embed/ml6cT4AZdqI"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
                   ></iframe>
                 </Card.Text>
               </Card.Body>

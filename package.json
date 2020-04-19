@@ -20,7 +20,9 @@
     "method-override": "^2.3.10",
     "mongoose": "^5.8.9",
     "morgan": "^1.9.1",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "@tensorflow/tfjs": "^1.7.0",
+    "@tensorflow/tfjs-node": "^1.5.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

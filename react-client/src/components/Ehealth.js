@@ -10,6 +10,8 @@ function Ehealth(props) {
   const [password, setPassword] = useState();
   const [userType, setUserType] = useState();
   const apiUrl = "http://localhost:3000/api/signin";
+  const apiUrlEmergency = "http://localhost:3000/api/Emergency";
+  const moment = require("moment");
 
   const auth = async () => {
     try {
@@ -19,6 +21,26 @@ function Ehealth(props) {
         setScreen(res.data.screen);
         setUserType(res.data.userType);
       }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const EmergencyAlter = async () => {
+    try {
+      const data = {
+        date: moment(new Date()).format("YYYY-MM-DD"),
+        email: screen,
+      };
+      axios
+        .post(apiUrlEmergency, data)
+        .then((result) => {
+          props.history.push("/Ehealth");
+          window.alert("Emergency alter sent!");
+        })
+        .catch((error) => {
+          window.alert("Fail to send emergency alter");
+        });
     } catch (e) {
       console.log(e);
     }
@@ -131,6 +153,20 @@ function Ehealth(props) {
             See Daily Tip
           </a>
           <a
+            className="btn btn-primary btn-md"
+            style={{ marginRight: "20px" }}
+            href="/SelfCheck"
+          >
+            Do The SlefCheck
+          </a>
+          <a
+            className="btn btn-primary btn-md"
+            style={{ marginRight: "20px" }}
+            href="/Stroke"
+          >
+            Check Stroke
+          </a>
+          <a
             className="btn btn-warning btn-md"
             style={{ marginRight: "20px" }}
             href="/AddPatientData"
@@ -144,6 +180,13 @@ function Ehealth(props) {
           >
             Move to Acitiviy page
           </a>
+          <button
+            style={{ marginRight: "20px" }}
+            className="btn btn-danger btn-md"
+            onClick={EmergencyAlter}
+          >
+            Send Emergency Alter
+          </button>
           <button className="btn btn-danger btn-md" onClick={deleteCookie}>
             Log out
           </button>

@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 function SignUp(props) {
   const [User, setUser] = useState({

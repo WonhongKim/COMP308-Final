@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
 const Schema = mongoose.Schema;
 
 var ActivitiesSchema = new Schema({
@@ -19,13 +17,8 @@ var ActivitiesSchema = new Schema({
 });
 
 ActivitiesSchema.pre("save", function (next) {
-  this.password = bcrypt.hashSync(this.password, saltRounds);
   next();
 });
-
-ActivitiesSchema.methods.authenticate = function (password) {
-  return this.password === bcrypt.hashSync(password, saltRounds);
-};
 
 ActivitiesSchema.set("toJSON", {
   getters: true,

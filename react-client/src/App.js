@@ -14,6 +14,9 @@ import VeiwDailytip from "./components/VeiwDailytip";
 import ViewDailytipDetail from "./components/ViewDailytipDetail";
 import AddPatientData from "./components/AddPatientData";
 import Activity from "./components/Activity";
+import SelfCheck from "./components/SelfCheck";
+import Stroke from "./components/Stroke";
+import Result from "./components/Result";
 
 function App(props) {
   return (
@@ -40,6 +43,9 @@ function App(props) {
         />
         <Route render={() => <AddPatientData />} path="/AddPatientData" />
         <Route render={() => <Activity />} path="/Activity" />
+        <Route render={() => <SelfCheck />} path="/SelfCheck" />
+        <Route render={() => <Stroke />} path="/Stroke" />
+        <Route render={() => <Result />} path="/Result" />
       </div>
     </Router>
   );
